@@ -1,17 +1,14 @@
 #!/bin/bash
 cp -Rf /tmp/src/. ./
-echo "ID!!!!!"
-whoami
-id
 
+# Permissions
+chmod -R g+w ./cache ./temp ./log
 mkdir ~/.ssh/
 
 echo -e $KEY > ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa
 
 echo -e "Host git.vivid-planet.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-
-ls -larth ~/.ssh
 
 git clone ssh://vivid@git.vivid-planet.com/git/build/VWPKWFIVE build
 git clone ssh://vivid@git.vivid-planet.com/git/vendor/VWPKWFIVE vendor
