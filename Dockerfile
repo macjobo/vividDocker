@@ -7,4 +7,4 @@ RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.
 # ADD assemble /usr/libexec/s2i/assemble
 # ADD run /usr/libexec/s2i/run
 
-USER default
+USER 1001
