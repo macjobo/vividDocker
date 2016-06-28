@@ -1,0 +1,10 @@
+#!/bin/bash
+cp -Rf /tmp/src/. ./
+
+mkdir ~/.ssh/
+chown -R 600 ~/.ssh
+
+echo $KEY > ~/.ssh/id_rsa
+git clone ssh://vivid@git.vivid-planet.com/git/build/VWPKWFIVE build
+git clone ssh://vivid@git.vivid-planet.com/git/vendor/VWPKWFIVE vendor
+
