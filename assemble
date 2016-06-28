@@ -2,9 +2,12 @@
 cp -Rf /tmp/src/. ./
 
 mkdir ~/.ssh/
-chown -R 600 ~/.ssh
+chmod -R 600 ~/.ssh
 
-echo $KEY > ~/.ssh/id_rsa
+echo -e $KEY > ~/.ssh/id_rsa
+
+echo -e "Host git.vivid-planet.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+
 git clone ssh://vivid@git.vivid-planet.com/git/build/VWPKWFIVE build
 git clone ssh://vivid@git.vivid-planet.com/git/vendor/VWPKWFIVE vendor
 
