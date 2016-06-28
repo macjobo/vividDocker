@@ -5,9 +5,9 @@ whoami
 id
 
 mkdir ~/.ssh/
-chmod -R 600 ~/.ssh
 
 echo -e $KEY > ~/.ssh/id_rsa
+chmod 600 ~/.ssh/id_rsa
 
 echo -e "Host git.vivid-planet.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 
