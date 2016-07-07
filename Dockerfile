@@ -4,7 +4,9 @@ USER root
 
 # RUN yum install -y php-pecl-memcache && yum clean all
 # RUN yum install -y php-tidy php-pecl-apcu && yum clean all
-RUN yum install -y rh-php56 rh-php56-php-opcache rh-php56-php-pecl-memcache && yum clean all
+RUN yum install -y devtoolset-3 rh-php56 rh-php56-php-opcache rh-php56-php-pecl-memcache && yum clean all
+RUN scl enable devtoolset-3 bash
+
 
 # RUN rpm -Uvh https://www.softwarecollections.org/en/scls/remi/php56more/epel-7-x86_64/download/remi-php56more-epel-7-x86_64.noarch.rpm
 RUN rpm -Uvh https://www.softwarecollections.org/repos/remi/php56more/epel-7-x86_64/00141272-php-pecl-apcu/more-php56-php-pecl-apcu-4.0.8-1.el7.centos.x86_64.rpm
