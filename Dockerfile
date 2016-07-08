@@ -13,12 +13,13 @@ RUN rpm -Uvh remi-release-7.rpm epel-release-latest-7.noarch.rpm remi-php56more-
 RUN yum install -y rh-php56 rh-php56-php-opcache rh-php56-php-pecl-memcache  && yum clean all
 RUN yum install -y more-php56-php-pecl-apcu more-php56-php-tidy && yum clean all
 
+ADD config.local.ini /tmp/src/config.local.ini
+RUN chmod 644 /tmp/src/config.local.ini
+
 ADD assemble /usr/libexec/s2i/assemble
 RUN chmod 750 /usr/libexec/s2i/assemble
 # ADD run /usr/libexec/s2i/run
 
-ADD config.local.ini /opt/app-root/src/config.local.ini
-RUN chmod 755 /opt/app-root/src/config.local.ini
 
 
 USER 1001
