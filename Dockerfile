@@ -14,7 +14,7 @@ RUN yum install -y rh-php56 rh-php56-php-opcache rh-php56-php-pecl-memcache  && 
 RUN yum install -y more-php56-php-pecl-apcu more-php56-php-tidy && yum clean all
 
 ADD assemble /usr/libexec/s2i/assemble
-RUN chown 1001 /usr/libexec/s2i/assemble
+RUN chmod 750 /usr/libexec/s2i/assemble
 # ADD run /usr/libexec/s2i/run
 
 USER 1001
