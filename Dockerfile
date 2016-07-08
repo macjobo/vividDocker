@@ -17,4 +17,8 @@ ADD assemble /usr/libexec/s2i/assemble
 RUN chmod 750 /usr/libexec/s2i/assemble
 # ADD run /usr/libexec/s2i/run
 
+ADD config.local.ini /opt/app-root/src/config.local.ini
+RUN chmod 755 /opt/app-root/src/config.local.ini
+
+
 USER 1001
