@@ -12,4 +12,4 @@ echo -e "Host git.vivid-planet.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/conf
 
 git clone ssh://vivid@git.vivid-planet.com/git/build/VWPKWFIVE build
 git clone ssh://vivid@git.vivid-planet.com/git/vendor/VWPKWFIVE vendor
-
+git clone https://github.com/macjobo/vividDocker.git 
