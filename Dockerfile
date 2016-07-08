@@ -7,8 +7,6 @@ USER root
 RUN wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 RUN wget http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 RUN rpm -Uvh remi-release-7.rpm epel-release-latest-7.noarch.rpm
-# for RHEL only
-RUN subscription-manager repos --enable=rhel-7-server-optional-rpms
 
 RUN yum install -y rh-php56 rh-php56-php-opcache rh-php56-php-pecl-memcache  && yum clean all
 RUN yum install -y more-php56-php-pecl-apcu more-php56-php-tidy && yum clean all
