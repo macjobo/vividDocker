@@ -1,15 +1,28 @@
 #!/bin/bash
-cp -Rf /tmp/src/. ./
+set -e
+
+shopt -s dotglob
+echo "---> Installing application source..."
+mv /tmp/src/* ./
 
 # Permissions
-chmod -R g+w ./cache ./temp ./log
-mkdir ~/.ssh/
+mkdir ./uploads/
+chmod -R g+w ./cache ./temp ./log ./uploads
 
+# Create config.local.ini so run script can write into it
+touch config.local.ini
+chmod g+w config.local.ini
+
+mkdir ~/.ssh/
 echo -e $KEY > ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa
 
 echo -e "Host git.vivid-planet.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 
-git clone ssh://vivid@git.vivid-planet.com/git/build/VWPKWFIVE build
-git clone ssh://vivid@git.vivid-planet.com/git/vendor/VWPKWFIVE vendor
-git clone https://github.com/macjobo/vividDocker.git 
+git clone --depth=1 ssh://vivid@git.vivid-planet.com/git/build/VWPKWFIVE build
+git clone --depth=1 ssh://vivid@git.vivid-planet.com/git/vendor/VWPKWFIVE vendor
+rm -rf build/.git vendor/.git
+
+# Permissions to allow debugging on running server
+# TODO this should probably not be done
+#chmod -R g+w .
